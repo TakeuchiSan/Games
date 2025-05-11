@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyEarn Games - Hasilkan Uang dengan Bermain</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">MoneyEarn</div>
+            <div class="user-info">
+                <span id="user-balance">Rp0</span>
+                <div class="profile-icon" id="profile-btn">👤</div>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="games">Games</button>
+            <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+            <button class="tab-btn" data-tab="missions">Misi</button>
+            <button class="tab-btn" data-tab="withdraw">Tarik Dana</button>
+        </nav>
+
+        <main>
+            <!-- Tab Games -->
+            <div class="tab-content active" id="games-tab">
+                <h2>Pilih Game</h2>
+                <div class="games-grid">
+                    <div class="game-card" data-game="number-guess">
+                        <h3>Tebak Angka</h3>
+                        <p>Tebak angka antara 1-100 untuk menang Rp500</p>
+                        <button class="play-btn" data-game="number-guess">Mainkan</button>
+                        <div class="free-play-badge" data-game="number-guess">GRATIS HARI INI</div>
+                    </div>
+                    <div class="game-card" data-game="math-quiz">
+                        <h3>Kuis Matematika</h3>
+                        <p>Jawab 5 soal matematika dalam 30 detik untuk Rp1000</p>
+                        <button class="play-btn" data-game="math-quiz">Mainkan</button>
+                        <div class="free-play-badge" data-game="math-quiz">GRATIS HARI INI</div>
+                    </div>
+                    <div class="game-card" data-game="memory-game">
+                        <h3>Game Memori</h3>
+                        <p>Temukan pasangan kartu untuk menang Rp800</p>
+                        <button class="play-btn" data-game="memory-game">Mainkan</button>
+                        <div class="free-play-badge" data-game="memory-game">GRATIS HARI INI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Leaderboard -->
+            <div class="tab-content" id="leaderboard-tab">
+                <h2>Peringkat Pemain</h2>
+                <div class="leaderboard">
+                    <div class="leaderboard-header">
+                        <span>Peringkat</span>
+                        <span>Nama</span>
+                        <span>Saldo</span>
+                    </div>
+                    <div class="leaderboard-list" id="leaderboard-list">
+                        <!-- Diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Misi -->
+            <div class="tab-content" id="missions-tab">
+                <h2>Misi Harian</h2>
+                <div class="missions-list">
+                    <div class="mission-item">
+                        <h3>Mainkan Game Gratis</h3>
+                        <p>Mainkan game gratis sekali sehari</p>
+                        <div class="mission-progress">
+                            <progress value="0" max="1"></progress>
+                            <button class="claim-btn" data-mission="free-play">Klaim Rp1000</button>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <h3>Undang Teman</h3>
+                        <p>Dapatkan Rp320000 untuk setiap teman yang mendaftar</p>
+                        <div class="mission-progress">
+                            <span>0/5 teman</span>
+                            <button class="invite-btn">Bagikan Kode Referral</button>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <h3>Mainkan 3 Game Berbeda</h3>
+                        <p>Mainkan 3 game berbeda hari ini untuk bonus Rp2000</p>
+                        <div class="mission-progress">
+                            <progress value="0" max="3"></progress>
+                            <button class="claim-btn" data-mission="play-3-games">Klaim Rp2000</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Tarik Dana -->
+            <div class="tab-content" id="withdraw-tab">
+                <h2>Tarik Penghasilan</h2>
+                <div class="withdraw-info">
+                    <p>Saldo tersedia: <span id="withdraw-balance">Rp0</span></p>
+                    <p>Minimal penarikan: Rp25.000</p>
+                </div>
+                <div class="withdraw-form">
+                    <input type="number" id="withdraw-amount" placeholder="Jumlah penarikan">
+                    <select id="withdraw-method">
+                        <option value="dana">DANA</option>
+                        <option value="ovo">OVO</option>
+                        <option value="gopay">GoPay</option>
+                        <option value="bank">Transfer Bank</option>
+                    </select>
+                    <input type="text" id="withdraw-account" placeholder="Nomor rekening/dompet digital">
+                    <button id="withdraw-btn">Ajukan Penarikan</button>
+                </div>
+                <div class="withdraw-history">
+                    <h3>Riwayat Penarikan</h3>
+                    <div class="history-list" id="withdraw-history">
+                        <!-- Diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal Game -->
+        <div class="modal" id="game-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="game-container">
+                    <!-- Konten game akan dimuat di sini -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Profil -->
+        <div class="modal" id="profile-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Profil Pengguna</h2>
+                <div class="profile-info">
+                    <div class="profile-field">
+                        <label>Nama:</label>
+                        <input type="text" id="profile-name" value="Pengguna Baru">
+                    </div>
+                    <div class="profile-field">
+                        <label>Email:</label>
+                        <input type="email" id="profile-email" placeholder="email@contoh.com">
+                    </div>
+                    <div class="profile-field">
+                        <label>Kode Referral:</label>
+                        <input type="text" id="referral-code" value="ABCD123" readonly>
+                        <button id="copy-referral">Salin</button>
+                    </div>
+                    <div class="profile-stats">
+                        <h3>Statistik</h3>
+                        <p>Total penghasilan: <span id="total-earned">Rp0</span></p>
+                        <p>Game dimainkan: <span id="games-played">0</span></p>
+                        <p>Teman diundang: <span id="friends-invited">0</span></p>
+                    </div>
+                    <button id="save-profile">Simpan Profil</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Referral -->
+        <div class="modal" id="referral-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Undang Teman</h2>
+                <p>Bagikan kode referral Anda untuk mendapatkan bonus Rp320000 setiap teman yang mendaftar dan bermain!</p>
+                <div class="referral-code-box">
+                    <input type="text" id="share-referral" value="https://moneyearn.game/ref=ABCD123" readonly>
+                    <button id="share-btn">Bagikan</button>
+                </div>
+                <div class="social-share">
+                    <button class="social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                    <button class="social-btn facebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    <button class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
