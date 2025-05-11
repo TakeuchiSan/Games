@@ -260,7 +260,7 @@ function shareReferral() {
 
 // Bagikan ke media sosial
 function shareOnSocialMedia(platform) {
-    const message = `Ayo main game dan dapatkan uang di MoneyEarn! Gunakan kode referral saya ${user.referralCode} untuk dapat bonus Rp320000. Daftar di https://money-earn.vercel.app/`;
+    const message = `Ayo main game dan dapatkan uang di MoneyEarn! Gunakan kode referral saya ${user.referralCode} untuk dapat bonus Rp25000. Daftar di https://money-quest.netlify.app/`;
     
     let url = '';
     switch (platform) {
@@ -268,7 +268,7 @@ function shareOnSocialMedia(platform) {
             url = `https://wa.me/?text=${encodeURIComponent(message)}`;
             break;
         case 'facebook':
-            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://money-earn.vercel.app/')}&quote=${encodeURIComponent(message)}`;
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://money-quest.netlify.app/')}&quote=${encodeURIComponent(message)}`;
             break;
         case 'twitter':
             url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
@@ -462,7 +462,7 @@ function submitWithdrawal() {
     }
     
     if (amount > user.balance) {
-        alert('Saldo Anda tidak mencukupi');
+        alert('Saldo Anda tidak mencukupi atau coba tarik semua uang anda');
         return;
     }
     
