@@ -19,16 +19,16 @@ let user = {
 
 // Data Leaderboard (simulasi)
 let leaderboard = [
-    { name: "Player1", balance: 125000 },
-    { name: "Player2", balance: 98000 },
-    { name: "Player3", balance: 87500 },
-    { name: "Player4", balance: 76500 },
-    { name: "Player5", balance: 65400 },
-    { name: "Player6", balance: 54300 },
-    { name: "Player7", balance: 43200 },
-    { name: "Player8", balance: 32100 },
-    { name: "Player9", balance: 21000 },
-    { name: "Player10", balance: 10500 }
+    { name: "NoellCrazy", balance: 125000 },
+    { name: "AgungSteel", balance: 98000 },
+    { name: "Jamalluuu", balance: 87500 },
+    { name: "Sulistyo", balance: 76500 },
+    { name: "Firmansyah", balance: 65400 },
+    { name: "Fahrisyah", balance: 54300 },
+    { name: "AbdulRasyid", balance: 43200 },
+    { name: "Auuuuuuuuu", balance: 32100 },
+    { name: "Karisma", balance: 21000 },
+    { name: "StilMoney", balance: 10500 }
 ];
 
 // Data Games
@@ -260,7 +260,7 @@ function shareReferral() {
 
 // Bagikan ke media sosial
 function shareOnSocialMedia(platform) {
-    const message = `Ayo main game dan dapatkan uang di MoneyEarn! Gunakan kode referral saya ${user.referralCode} untuk dapat bonus Rp320000. Daftar di https://moneyearn.game/ref=${user.referralCode}`;
+    const message = `Ayo main game dan dapatkan uang di MoneyEarn! Gunakan kode referral saya ${user.referralCode} untuk dapat bonus Rp320000. Daftar di https://money-earn.vercel.app/`;
     
     let url = '';
     switch (platform) {
@@ -268,7 +268,7 @@ function shareOnSocialMedia(platform) {
             url = `https://wa.me/?text=${encodeURIComponent(message)}`;
             break;
         case 'facebook':
-            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://moneyearn.game')}&quote=${encodeURIComponent(message)}`;
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://money-earn.vercel.app/')}&quote=${encodeURIComponent(message)}`;
             break;
         case 'twitter':
             url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
